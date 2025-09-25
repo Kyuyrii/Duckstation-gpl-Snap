@@ -47,8 +47,14 @@ apps:
 
 
   kvantum:
+    command-chain:
+      - snap/command-chain/gpu-2404-wrapper
+      - snap/command-chain/desktop-launch6
     command: usr/bin/kvantummanager
-    extensions: [kde-neon-6]
+    environment:
+      SNAP_DESKTOP_RUNTIME: $SNAP/kf6
+      GTK_USE_PORTAL: "1"
+      QT_VERSION: "6"
     plugs:
       - home
 
